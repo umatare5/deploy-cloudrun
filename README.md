@@ -186,6 +186,9 @@ jobs:
     subcommand is `gcloud run services update-traffic`. For all other values,
     the subcommand is `gcloud run deploy`.
 
+-   `execution_environment`: (Optional) Generation of the Cloud Run service.
+    The default value is `gen1`.
+
 -   `no_traffic`: (Optional) If true, the newly deployed revision will not
     receive traffic. The default value is false.
 

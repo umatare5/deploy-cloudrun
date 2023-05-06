@@ -110,6 +110,15 @@ inputs:
       unit, seconds is assumed.
     required: false
 
+  execution_environment:
+    description: |-
+      Selects the execution environment where the application will run.
+      EXECUTION_ENVIRONMENT must be one of:
+      gen1: Run the application in a first generation execution environment.
+      gen2: Run the application in a second generation execution environment.
+    default: gen1
+    required: false
+
   no_traffic:
     description: |-
       True to avoid sending traffic to the revision being deployed. Setting

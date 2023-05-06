@@ -101,6 +101,7 @@ export async function run(): Promise<void> {
     const suffix = getInput('suffix');
     const tag = getInput('tag');
     const timeout = getInput('timeout');
+    const executionEnvironment = getInput('execution_environment') || 'gen1';
     const noTraffic = (getInput('no_traffic') || '').toLowerCase() === 'true';
     const revTraffic = getInput('revision_traffic');
     const tagTraffic = getInput('tag_traffic');
@@ -142,6 +143,7 @@ export async function run(): Promise<void> {
         metadata: metadata !== '',
         source: source !== '',
         env_vars: envVars !== '',
+        execution_environment: executionEnvironment !== '',
         no_traffic: noTraffic,
         secrets: Object.keys(secrets).length > 0,
         suffix: suffix !== '',
@@ -162,6 +164,7 @@ export async function run(): Promise<void> {
         service: service !== '',
         source: source !== '',
         env_vars: envVars !== '',
+        execution_environment: executionEnvironment !== '',
         no_traffic: noTraffic,
         secrets: Object.keys(secrets).length > 0,
         suffix: suffix !== '',
@@ -199,6 +202,7 @@ export async function run(): Promise<void> {
         cmd.push('--tag', tag);
       }
       if (suffix) cmd.push('--revision-suffix', suffix);
+      if (executionEnvironment) cmd.push('--execution-environment', executionEnvironment);
       if (noTraffic) cmd.push('--no-traffic');
       if (timeout) cmd.push('--timeout', timeout);
 
